@@ -845,10 +845,13 @@
   <div class="f-copy">© 2026 Maslo Consulting Pvt Ltd · All rights reserved</div>
 </footer>
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-  function toggleFaq(el){var item=el.parentNode;var isOpen=item.classList.contains('open');document.querySelectorAll('.faq-item.open').forEach(function(i){i.classList.re
-
-
-
+  function toggleFaq(el){
+    var item=el.parentNode;
+    var isOpen=item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(function(i){i.classList.remove('open');});
+    if(!isOpen){item.classList.add('open');}
+  }
+</script>
 <script>
 (function(){
   var u='hr',d='masloconsulting.com',e=u+'@'+d;
