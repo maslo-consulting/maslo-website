@@ -1,0 +1,454 @@
+{
+  "redirects": [
+    {
+      "source": "/about-block-02-2",
+      "destination": "/maslo-about-page.html",
+      "permanent": true
+    },
+    {
+      "source": "/eazyrecruitz_service/jobportal",
+      "destination": "/maslo-recruitment-page.html",
+      "permanent": true
+    },
+    {
+      "source": "/learning-services",
+      "destination": "/maslo-ld-page.html",
+      "permanent": true
+    },
+    {
+      "source": "/campus-news",
+      "destination": "/maslo-academy-page.html",
+      "permanent": true
+    },
+    {
+      "source": "/understanding-the-legal-framework-and-organizational-measures",
+      "destination": "https://knowledge.masloconsulting.com/posh-act-india-guide",
+      "permanent": true
+    },
+    {
+      "source": "/campus-recruitment-training-2",
+      "destination": "/maslo-academy-page.html",
+      "permanent": true
+    },
+    {
+      "source": "/hr-consulting-2",
+      "destination": "/#services",
+      "permanent": true
+    },
+    {
+      "source": "/companies/we360",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/upcoming-event/past-events",
+      "destination": "/maslo-posh-page.html",
+      "permanent": true
+    },
+    {
+      "source": "/companies/livehire",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/companies/mynd",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/companies/pletential",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/companies/maslo-consulting",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/companies/vantage-circle",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/event/posh-for-managers",
+      "destination": "/maslo-posh-page.html",
+      "permanent": true
+    },
+    {
+      "source": "/companies/grabon",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/companies/orgmapper",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/first-time-leader",
+      "destination": "/maslo-academy-page.html",
+      "permanent": true
+    },
+    {
+      "source": "/companies/customfurnish-2",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/jobs_cat/software",
+      "destination": "/maslo-recruitment-page.html",
+      "permanent": true
+    },
+    {
+      "source": "/event/building-a-talent-development-program-2",
+      "destination": "/maslo-academy-page.html",
+      "permanent": true
+    },
+    {
+      "source": "/blog-list-view",
+      "destination": "https://knowledge.masloconsulting.com",
+      "permanent": true
+    },
+    {
+      "source": "/eazyrecruitz_service/risk-and-compliance",
+      "destination": "/maslo-labour-law-page.html",
+      "permanent": true
+    },
+    {
+      "source": "/apply-now",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/event/prevention-of-sexual-harrasement-2",
+      "destination": "/maslo-posh-page.html",
+      "permanent": true
+    },
+    {
+      "source": "/learning-solutions",
+      "destination": "/maslo-ld-page.html",
+      "permanent": true
+    },
+    {
+      "source": "/companies/flowtrack",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/certified-posh-compliance-officer-cpco",
+      "destination": "/maslo-academy-page.html",
+      "permanent": true
+    },
+    {
+      "source": "/contact",
+      "destination": "/#contact",
+      "permanent": true
+    },
+    {
+      "source": "/companies/cazar",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/eazyrecruitz_service/hr-bot",
+      "destination": "/#products",
+      "permanent": true
+    },
+    {
+      "source": "/eazyrecruitz_service/maslo-academy",
+      "destination": "/maslo-academy-page.html",
+      "permanent": true
+    },
+    {
+      "source": "/eazyrecruitz_service/building-network",
+      "destination": "/maslo-talentsphere-page.html",
+      "permanent": true
+    },
+    {
+      "source": "/companies/smartinternz",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/er-for-people-leaders-3",
+      "destination": "/maslo-academy-page.html",
+      "permanent": true
+    },
+    {
+      "source": "/companies/webbtree",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/companies/employment-hero",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/hr-certifications",
+      "destination": "/maslo-academy-page.html",
+      "permanent": true
+    },
+    {
+      "source": "/a-comprehensive-guide-to-implementing-the-posh-act",
+      "destination": "https://knowledge.masloconsulting.com/posh-act-india-guide",
+      "permanent": true
+    },
+    {
+      "source": "/companies/ismartrecruit",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/companies/benepik",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/learning-catalogue",
+      "destination": "/maslo-ld-page.html",
+      "permanent": true
+    },
+    {
+      "source": "/maslo-academy-2",
+      "destination": "/maslo-academy-page.html",
+      "permanent": true
+    },
+    {
+      "source": "/eazyrecruitz_service/campus-recruitment-training-crt",
+      "destination": "/maslo-academy-page.html",
+      "permanent": true
+    },
+    {
+      "source": "/mentorships",
+      "destination": "/maslo-academy-page.html",
+      "permanent": true
+    },
+    {
+      "source": "/https-masloconsulting-com-posh-act-categories",
+      "destination": "https://knowledge.masloconsulting.com/posh-act-india-guide",
+      "permanent": true
+    },
+    {
+      "source": "/blogs",
+      "destination": "https://knowledge.masloconsulting.com",
+      "permanent": true
+    },
+    {
+      "source": "/companies/compup",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/https-masloconsulting-com-labor-compliance",
+      "destination": "https://knowledge.masloconsulting.com/new-labour-codes-india-explained",
+      "permanent": true
+    },
+    {
+      "source": "/companies/pradjna",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/job-openings",
+      "destination": "/maslo-recruitment-page.html",
+      "permanent": true
+    },
+    {
+      "source": "/a-guide-to-posh-compliance-for-higher-educational-institutions",
+      "destination": "https://knowledge.masloconsulting.com/posh-act-india-guide",
+      "permanent": true
+    },
+    {
+      "source": "/versant-training",
+      "destination": "/maslo-ld-page.html",
+      "permanent": true
+    },
+    {
+      "source": "/companies/octomate",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/companies/intercell",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/tackling-tricky-scenarios-in-internal-complaints-committee-proceedings",
+      "destination": "https://knowledge.masloconsulting.com/posh-act-india-guide",
+      "permanent": true
+    },
+    {
+      "source": "/hr-tech",
+      "destination": "/#products",
+      "permanent": true
+    },
+    {
+      "source": "/hr-consulting",
+      "destination": "/#services",
+      "permanent": true
+    },
+    {
+      "source": "/events",
+      "destination": "/maslo-posh-page.html",
+      "permanent": true
+    },
+    {
+      "source": "/companies/ekincare",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/jobs-internships",
+      "destination": "/maslo-recruitment-page.html",
+      "permanent": true
+    },
+    {
+      "source": "/event/posh-for-human-resources",
+      "destination": "/maslo-posh-page.html",
+      "permanent": true
+    },
+    {
+      "source": "/companies/timecentral",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/all-companies",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/certified-specialist-in-employee-relations",
+      "destination": "/maslo-academy-page.html",
+      "permanent": true
+    },
+    {
+      "source": "/academy",
+      "destination": "/maslo-academy-page.html",
+      "permanent": true
+    },
+    {
+      "source": "/companies/career-boosts",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/companies/elockr",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/workplace-investigation",
+      "destination": "/maslo-labour-law-page.html",
+      "permanent": true
+    },
+    {
+      "source": "/about-company",
+      "destination": "/maslo-about-page.html",
+      "permanent": true
+    },
+    {
+      "source": "/hr-recruiting-and-staffing",
+      "destination": "/maslo-recruitment-page.html",
+      "permanent": true
+    },
+    {
+      "source": "/assessments-students",
+      "destination": "/maslo-talentsphere-page.html",
+      "permanent": true
+    },
+    {
+      "source": "/internships",
+      "destination": "/maslo-recruitment-page.html",
+      "permanent": true
+    },
+    {
+      "source": "/eazyrecruitz_service/recruitment-staffing",
+      "destination": "/maslo-recruitment-page.html",
+      "permanent": true
+    },
+    {
+      "source": "/about-block-02-3",
+      "destination": "/maslo-about-page.html",
+      "permanent": true
+    },
+    {
+      "source": "/faqs-2",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/event/posh-for-employees",
+      "destination": "/maslo-posh-page.html",
+      "permanent": true
+    },
+    {
+      "source": "/about-block-02",
+      "destination": "/maslo-about-page.html",
+      "permanent": true
+    },
+    {
+      "source": "/about-block-02-2-2",
+      "destination": "/maslo-about-page.html",
+      "permanent": true
+    },
+    {
+      "source": "/companies/offiga",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/companies/vega-equity",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/companies/empfly",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/companies/nudgyt",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/hr-training-2",
+      "destination": "/maslo-academy-page.html",
+      "permanent": true
+    },
+    {
+      "source": "/service_cat/academy",
+      "destination": "/maslo-academy-page.html",
+      "permanent": true
+    },
+    {
+      "source": "/event/workshop-for-ic-members",
+      "destination": "/maslo-posh-page.html",
+      "permanent": true
+    },
+    {
+      "source": "/author/maslo-consulting",
+      "destination": "/maslo-about-page.html",
+      "permanent": true
+    },
+    {
+      "source": "/eazyrecruitz_jobs/data-entry-and-placement-executive",
+      "destination": "/maslo-recruitment-page.html",
+      "permanent": true
+    },
+    {
+      "source": "/hr-services",
+      "destination": "/#services",
+      "permanent": true
+    },
+    {
+      "source": "/companies/orglens",
+      "destination": "/",
+      "permanent": true
+    }
+  ]
+}
