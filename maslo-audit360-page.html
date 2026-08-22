@@ -469,7 +469,8 @@
   .dual-content p{font-size:13px;color:var(--text-mid);line-height:1.7;}
   .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--gray-300);}
   .svc-num{font-family:var(--font-display);font-size:12px;color:var(--gold);margin-bottom:16px;font-weight:500;letter-spacing:0.06em;}
-  @media(max-width:900px){.problem-grid,.services-grid,.dual-strip{grid-template-columns:1fr;}}
+  @media(max-width:900px){.problem-grid,.services-grid,.dual-strip,.grid-4{grid-template-columns:1fr;}}
+  .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--gray-300);}
 </style>
   <meta name="robots" content="index,follow">
   <!-- Google Analytics -->
@@ -574,7 +575,7 @@
     <div class="section-tag">What Audit360 does</div>
     <div class="section-title" style="margin-bottom:8px;">Four things. Done properly.</div>
     <p class="section-sub">Not a checklist. A diagnostic built the way a consultancy would run it — scored, benchmarked, and actionable.</p>
-    <div class="services-grid">
+    <div class="grid-4">
       <div class="svc-card" style="padding:32px;background:var(--white);">
         <div class="svc-num">01</div>
         <div class="svc-icon"><svg viewBox="0 0 24 24" width="22" height="22" stroke="#C9A84C" fill="none" stroke-width="1.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg></div>
@@ -676,7 +677,7 @@
     </div>
     <div style="margin-top:48px;">
       <h3 style="font-family:var(--font-display);font-size:22px;font-weight:500;color:var(--text-dark);margin-bottom:20px;">The 4-stage HR maturity model</h3>
-      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--gray-300);">
+      <div class="grid-4">
         <div class="svc-card" style="padding:24px;background:var(--white);"><h4 style="font-size:13px;font-weight:500;margin-bottom:6px;">Startup</h4><p style="font-size:12px;color:var(--text-light);line-height:1.6;">Founder-led HR, few formal processes. Focus: statutory basics, POSH, offer letters.</p></div>
         <div class="svc-card" style="padding:24px;background:var(--white);"><h4 style="font-size:13px;font-weight:500;margin-bottom:6px;">Growth</h4><p style="font-size:12px;color:var(--text-light);line-height:1.6;">First HR hires, scaling headcount. Focus: policies, payroll systems, performance process.</p></div>
         <div class="svc-card" style="padding:24px;background:var(--white);"><h4 style="font-size:13px;font-weight:500;margin-bottom:6px;">Scale-up</h4><p style="font-size:12px;color:var(--text-light);line-height:1.6;">Structured HR function. Focus: HR technology, L&amp;D, engagement, multi-state compliance.</p></div>
@@ -719,7 +720,7 @@
     <div class="section-tag">The consulting engagement</div>
     <h2 class="section-title" style="margin-bottom:8px;">The diagnostic finds the gaps. Maslo fixes them.</h2>
     <p class="section-sub">Audit360 is not a SaaS subscription — it's the diagnostic layer of a Maslo Consulting engagement. Once you engage us to act on your findings, the following unlock:</p>
-    <div class="services-grid">
+    <div class="grid-4">
       <div class="svc-card" style="padding:32px;background:var(--white);"><div class="svc-num">01</div><h3>30/90/180-day roadmap</h3><p>Every gap sequenced into Immediate, Medium, and Long-term actions with a named owner and steps.</p></div>
       <div class="svc-card" style="padding:32px;background:var(--white);"><div class="svc-num">02</div><h3>Interventions &amp; strategic solutions</h3><p>Practitioner-led remediation for each flagged domain — not templates, actual implementation support.</p></div>
       <div class="svc-card" style="padding:32px;background:var(--white);"><div class="svc-num">03</div><h3>Project tracker</h3><p>Findings sync into a trackable action plan — owners, due dates, status, evidence uploads, batch edits.</p></div>
