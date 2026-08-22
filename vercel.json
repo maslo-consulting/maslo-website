@@ -1,5 +1,7 @@
 {
   "redirects": [
+    {"source": "/maslo-academy-page.html", "destination": "/maslo-campus-page.html", "permanent": true},
+
     {
       "source": "/about-block-02-2",
       "destination": "/maslo-about-page.html",
@@ -17,7 +19,7 @@
     },
     {
       "source": "/campus-news",
-      "destination": "/maslo-academy-page.html",
+      "destination": "/maslo-campus-page.html",
       "permanent": true
     },
     {
@@ -27,7 +29,7 @@
     },
     {
       "source": "/campus-recruitment-training-2",
-      "destination": "/maslo-academy-page.html",
+      "destination": "/maslo-campus-page.html",
       "permanent": true
     },
     {
@@ -87,7 +89,7 @@
     },
     {
       "source": "/first-time-leader",
-      "destination": "/maslo-academy-page.html",
+      "destination": "/maslo-campus-page.html",
       "permanent": true
     },
     {
@@ -102,7 +104,7 @@
     },
     {
       "source": "/event/building-a-talent-development-program-2",
-      "destination": "/maslo-academy-page.html",
+      "destination": "/maslo-campus-page.html",
       "permanent": true
     },
     {
@@ -137,7 +139,7 @@
     },
     {
       "source": "/certified-posh-compliance-officer-cpco",
-      "destination": "/maslo-academy-page.html",
+      "destination": "/maslo-campus-page.html",
       "permanent": true
     },
     {
@@ -157,7 +159,7 @@
     },
     {
       "source": "/eazyrecruitz_service/maslo-academy",
-      "destination": "/maslo-academy-page.html",
+      "destination": "/maslo-campus-page.html",
       "permanent": true
     },
     {
@@ -172,7 +174,7 @@
     },
     {
       "source": "/er-for-people-leaders-3",
-      "destination": "/maslo-academy-page.html",
+      "destination": "/maslo-campus-page.html",
       "permanent": true
     },
     {
@@ -187,7 +189,7 @@
     },
     {
       "source": "/hr-certifications",
-      "destination": "/maslo-academy-page.html",
+      "destination": "/maslo-campus-page.html",
       "permanent": true
     },
     {
@@ -212,17 +214,17 @@
     },
     {
       "source": "/maslo-academy-2",
-      "destination": "/maslo-academy-page.html",
+      "destination": "/maslo-campus-page.html",
       "permanent": true
     },
     {
       "source": "/eazyrecruitz_service/campus-recruitment-training-crt",
-      "destination": "/maslo-academy-page.html",
+      "destination": "/maslo-campus-page.html",
       "permanent": true
     },
     {
       "source": "/mentorships",
-      "destination": "/maslo-academy-page.html",
+      "destination": "/maslo-campus-page.html",
       "permanent": true
     },
     {
@@ -322,12 +324,12 @@
     },
     {
       "source": "/certified-specialist-in-employee-relations",
-      "destination": "/maslo-academy-page.html",
+      "destination": "/maslo-campus-page.html",
       "permanent": true
     },
     {
       "source": "/academy",
-      "destination": "/maslo-academy-page.html",
+      "destination": "/maslo-campus-page.html",
       "permanent": true
     },
     {
@@ -417,12 +419,12 @@
     },
     {
       "source": "/hr-training-2",
-      "destination": "/maslo-academy-page.html",
+      "destination": "/maslo-campus-page.html",
       "permanent": true
     },
     {
       "source": "/service_cat/academy",
-      "destination": "/maslo-academy-page.html",
+      "destination": "/maslo-campus-page.html",
       "permanent": true
     },
     {
