@@ -903,21 +903,21 @@
     <div class="section-sub reveal" style="margin-bottom:36px;">CRT sessions, FDPs, hackathons, and placement drives — across our partner campuses.</div>
     <div class="photo-strip-grid" style="display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:16px;">
       <div class="photo-card reveal hover-lift" style="height:320px;">
-        <img loading="lazy" src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=900&q=75&auto=format" alt="Campus recruitment training session">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1573164574511-73c773193279?w=900&q=75&auto=format" alt="Campus recruitment training session">
         <div style="position:absolute;bottom:20px;left:20px;z-index:1;color:#fff;">
           <div style="font-size:10px;letter-spacing:0.1em;color:#E2C97E;margin-bottom:4px;">CRT SESSIONS</div>
           <div style="font-family:'Cormorant Garamond',Georgia,serif;font-size:19px;">Campus recruitment training in the classroom</div>
         </div>
       </div>
       <div class="photo-card reveal hover-lift" style="height:320px;">
-        <img loading="lazy" src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=700&q=75&auto=format" alt="Campus placement drive">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=700&q=75&auto=format" alt="Campus placement drive">
         <div style="position:absolute;bottom:20px;left:20px;z-index:1;color:#fff;">
           <div style="font-size:10px;letter-spacing:0.1em;color:#E2C97E;margin-bottom:4px;">PLACEMENT DRIVES</div>
           <div style="font-family:'Cormorant Garamond',Georgia,serif;font-size:19px;">Students meeting recruiters on campus</div>
         </div>
       </div>
       <div class="photo-card reveal hover-lift" style="height:320px;">
-        <img loading="lazy" src="https://images.unsplash.com/photo-1543269865-cbf427effbad?w=700&q=75&auto=format" alt="Faculty development programme">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1552581234-26160f608093?w=700&q=75&auto=format" alt="Faculty development programme">
         <div style="position:absolute;bottom:20px;left:20px;z-index:1;color:#fff;">
           <div style="font-size:10px;letter-spacing:0.1em;color:#E2C97E;margin-bottom:4px;">FACULTY PROGRAMMES</div>
           <div style="font-family:'Cormorant Garamond',Georgia,serif;font-size:19px;">Faculty development sessions</div>
@@ -1090,6 +1090,15 @@
   }
   window.addEventListener('scroll', __updateScrollProgress, {passive:true});
   __updateScrollProgress();
+
+  // headings zoom in on scroll
+  var __zoomObs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='scale(1)';__zoomObs.unobserve(e.target);}});
+  },{threshold:0.2});
+  document.querySelectorAll('.section-title').forEach(function(el){
+    el.style.opacity='0';el.style.transform='scale(0.88)';el.style.transition='opacity 0.8s cubic-bezier(0.16,1,0.3,1),transform 0.8s cubic-bezier(0.16,1,0.3,1)';
+    __zoomObs.observe(el);
+  });
 </script>
 <script>
   function toggleFaq(el){

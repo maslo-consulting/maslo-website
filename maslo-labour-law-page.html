@@ -964,14 +964,14 @@
     <div class="section-sub reveal" style="margin-bottom:36px;">Compliance360 automates the audit trail — our consultants still sit with your HR and finance teams to walk through it.</div>
     <div class="photo-strip-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
       <div class="photo-card reveal hover-lift" style="height:320px;">
-        <img loading="lazy" src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=900&q=75&auto=format" alt="Compliance documents review">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=900&q=75&auto=format" alt="Compliance documents review">
         <div style="position:absolute;bottom:20px;left:20px;z-index:1;color:#fff;">
           <div style="font-size:10px;letter-spacing:0.1em;color:#E2C97E;margin-bottom:4px;">AUDIT REVIEW</div>
           <div style="font-family:'Cormorant Garamond',Georgia,serif;font-size:19px;">Reviewing statutory compliance documents</div>
         </div>
       </div>
       <div class="photo-card reveal hover-lift" style="height:320px;">
-        <img loading="lazy" src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=700&q=75&auto=format" alt="HR and finance team meeting">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1560439514-4e9645039924?w=700&q=75&auto=format" alt="HR and finance team meeting">
         <div style="position:absolute;bottom:20px;left:20px;z-index:1;color:#fff;">
           <div style="font-size:10px;letter-spacing:0.1em;color:#E2C97E;margin-bottom:4px;">HR & FINANCE</div>
           <div style="font-family:'Cormorant Garamond',Georgia,serif;font-size:19px;">Cross-functional compliance sessions</div>
@@ -1147,6 +1147,15 @@
   }
   window.addEventListener('scroll', __updateScrollProgress, {passive:true});
   __updateScrollProgress();
+
+  // headings zoom in on scroll
+  var __zoomObs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='scale(1)';__zoomObs.unobserve(e.target);}});
+  },{threshold:0.2});
+  document.querySelectorAll('.section-title').forEach(function(el){
+    el.style.opacity='0';el.style.transform='scale(0.88)';el.style.transition='opacity 0.8s cubic-bezier(0.16,1,0.3,1),transform 0.8s cubic-bezier(0.16,1,0.3,1)';
+    __zoomObs.observe(el);
+  });
 </script>
 <script>
   function toggleFaq(el){
