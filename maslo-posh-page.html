@@ -176,7 +176,7 @@
   .f-links a:hover{color:var(--gold);}
   .f-copy{font-size:11px;color:rgba(255,255,255,0.25);}
 
-  @media(max-width:900px){
+  @media(max-width:900px){.photo-strip-grid{grid-template-columns:1fr!important;}
     nav{padding:0 20px;}.nav-links{display:none;}
     section{padding:56px 20px;}
     .hero{padding:110px 20px 60px;}
@@ -201,7 +201,9 @@
 
   .btn-gold:hover{box-shadow:0 0 20px rgba(201,168,76,0.3);}
   .nav-links a{transition:color 0.3s ease;}
-  .svc-card,.pillar,.phase-card,.code-card,.gm-card,.cert-card,.who-card{transition:all 0.3s ease;}
+  .svc-card,.pillar,.phase-card,.code-card,.gm-card,.cert-card,.who-card{transition:transform 0.35s cubic-bezier(0.16,1,0.3,1),box-shadow 0.35s ease,border-color 0.3s ease;}
+  .svc-card:hover,.phase-card:hover,.code-card:hover,.gm-card:hover,.cert-card:hover{transform:translateY(-5px) scale(1.015);box-shadow:0 14px 40px rgba(11,31,58,0.12);}
+  .scroll-progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,#C9A84C,#E2C97E);z-index:9999;width:0%;transition:width 0.1s ease-out;}
 
 
   /* ── DROPDOWN FIX ── */
@@ -459,6 +461,7 @@
   </script>
 </head>
 <body>
+<div class="scroll-progress" id="scrollProgress"></div>
   
 </div>
 
@@ -836,6 +839,31 @@
   </div>
 </section>
 
+<!-- PHOTO STRIP -->
+<section class="bg-offwhite" style="padding-top:56px;">
+  <div class="section-inner">
+    <div class="section-tag reveal">Training that lands</div>
+    <div class="section-title reveal" style="margin-bottom:8px;">POSH training, delivered to real teams.</div>
+    <div class="section-sub reveal" style="margin-bottom:36px;">ICC formation and POSH training happen in workshops with your people — not just an online module nobody finishes.</div>
+    <div class="photo-strip-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+      <div class="photo-card reveal hover-lift" style="height:320px;">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=900&q=75&auto=format" alt="POSH awareness training session">
+        <div style="position:absolute;bottom:20px;left:20px;z-index:1;color:#fff;">
+          <div style="font-size:10px;letter-spacing:0.1em;color:#E2C97E;margin-bottom:4px;">WORKSHOPS</div>
+          <div style="font-family:'Cormorant Garamond',Georgia,serif;font-size:19px;">POSH training session in progress</div>
+        </div>
+      </div>
+      <div class="photo-card reveal hover-lift" style="height:320px;">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=700&q=75&auto=format" alt="ICC formation working session">
+        <div style="position:absolute;bottom:20px;left:20px;z-index:1;color:#fff;">
+          <div style="font-size:10px;letter-spacing:0.1em;color:#E2C97E;margin-bottom:4px;">ICC FORMATION</div>
+          <div style="font-family:'Cormorant Garamond',Georgia,serif;font-size:19px;">Working with HR to form the ICC</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- FAQ -->
 <section class="bg-offwhite">
   <div class="section-inner">
@@ -1011,6 +1039,15 @@
     el.style.opacity='0';el.style.transform='translateY(20px) scale(0.97)';el.style.transition='opacity 0.7s cubic-bezier(0.16,1,0.3,1) '+(i%3*0.06)+'s,transform 0.7s cubic-bezier(0.16,1,0.3,1) '+(i%3*0.06)+'s';
     __obs.observe(el);
   });
+  // scroll progress bar
+  var __sp = document.getElementById('scrollProgress');
+  function __updateScrollProgress(){
+    var h = document.documentElement;
+    var scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
+    if(__sp) __sp.style.width = (scrolled || 0) + '%';
+  }
+  window.addEventListener('scroll', __updateScrollProgress, {passive:true});
+  __updateScrollProgress();
 </script>
 <script>
   function toggleFaq(el){
