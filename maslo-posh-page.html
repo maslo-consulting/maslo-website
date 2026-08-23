@@ -30,6 +30,11 @@
 
   /* HERO */
   .hero{background:var(--navy);padding:140px 48px 88px;position:relative;overflow:hidden;}
+  .trust-strip{display:flex;align-items:center;justify-content:center;gap:24px;padding:16px 48px;background:rgba(255,255,255,0.03);border-top:0.5px solid rgba(201,168,76,0.15);border-bottom:0.5px solid rgba(201,168,76,0.15);flex-wrap:wrap;}
+  .trust-item{font-size:11px;color:rgba(255,255,255,0.75);letter-spacing:0.05em;display:flex;align-items:center;gap:8px;}
+  .trust-item::before{content:'';width:4px;height:4px;border-radius:50%;background:rgba(201,168,76,0.5);}
+  .trust-item.trust-highlight{color:#E2C97E;font-weight:500;}
+  .trust-item.trust-highlight::before{background:#C9A84C;}
   .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 70% at 90% 50%,rgba(201,168,76,0.08) 0%,transparent 65%);}
   .hero-inner{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:1fr 420px;gap:64px;align-items:center;}
   .breadcrumb{font-size:12px;color:rgba(255,255,255,0.4);margin-bottom:20px;}
@@ -540,6 +545,7 @@
       </div>
       <div class="hero-card">
         <div class="hero-card-title">Why POSH compliance cannot wait</div>
+        <div class="ai-suite-badge" style="margin-bottom:16px;">✓ Empanelled — Govt. of Telangana, WCD Dept.</div>
         <div class="hero-stats">
           <div>
             <div class="h-stat-val">₹50K</div>
@@ -564,6 +570,13 @@
       </div>
     </div>
   </div>
+</div>
+
+<div class="trust-strip">
+  <div class="trust-item trust-highlight">Empanelled — Dept. of Women &amp; Child Development, Govt. of Telangana</div>
+  <div class="trust-item">POSH Act 2013 Certified</div>
+  <div class="trust-item">Internal Committee (IC) Setup &amp; Audit</div>
+  <div class="trust-item">Pan-India Delivery</div>
 </div>
 
 <!-- THE PROBLEM -->
