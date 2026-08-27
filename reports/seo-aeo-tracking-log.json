@@ -1,0 +1,47 @@
+{
+  "notes": "Week-over-week SEO/AEO tracking log for Maslo Consulting. Updated from manually-exported Google Search Console (Performance on Search) and Google Analytics (Reports snapshot) files. One entry per week. Do not hand-edit historical entries; append new ones only.",
+  "weeks": [
+    {
+      "week_ending": "2026-08-27",
+      "label": "Baseline (indexing fixes just applied)",
+      "search_console": {
+        "window": "last 3 months, data through 2026-08-24",
+        "clicks": 67,
+        "impressions": 1030,
+        "avg_position_india": 5.55,
+        "top_query": "maslo consulting",
+        "top_query_clicks": 44,
+        "non_branded_clicks": 0,
+        "pages_not_indexed": 129,
+        "pages_indexed": 1,
+        "pagefactory_verified": false,
+        "pagefactory_sitemap_submitted": false,
+        "knowledge_hub_sitemap_submitted": false
+      },
+      "analytics": {
+        "window": "28 days, 2026-07-30 to 2026-08-26",
+        "active_users": 294,
+        "new_users": 285,
+        "avg_engagement_seconds": 23.27,
+        "sessions_direct": 267,
+        "sessions_google_organic": 51,
+        "sessions_chatgpt_ai_assistant": 4,
+        "homepage_views": 296,
+        "knowledge_hub_views": 40,
+        "posh_page_views": 24,
+        "posh_bounce_rate": 0.2308,
+        "simulead_views": 4,
+        "talentsphere_views": 9
+      },
+      "actions_taken_this_week": [
+        "Verified pages.masloconsulting.com in Search Console for the first time (was never verified)",
+        "Submitted PageFactory sitemap - 120 pages discovered instantly",
+        "Submitted knowledge.masloconsulting.com sitemap for the first time - 18 pages discovered",
+        "Resubmitted stale masloconsulting.com sitemap",
+        "Requested priority indexing for homepage, Audit360, Campus, SimuLead, TalentSphere, Languapro",
+        "Confirmed all 91 legacy WordPress 404 redirects are live and working correctly",
+        "Added prominent MWCD Telangana empanelment banner to POSH page"
+      ]
+    }
+  ]
+}
