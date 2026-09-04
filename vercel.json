@@ -1,7 +1,15 @@
 {
   "redirects": [
-    {"source": "/maslo-academy-page.html", "destination": "/maslo-campus-page.html", "permanent": true},
-
+    {
+      "source": "/maslo-talentsphere-page.html",
+      "destination": "/maslo-campus360-page.html",
+      "permanent": true
+    },
+    {
+      "source": "/maslo-academy-page.html",
+      "destination": "/maslo-campus-page.html",
+      "permanent": true
+    },
     {
       "source": "/about-block-02-2",
       "destination": "/maslo-about-page.html",
@@ -164,7 +172,7 @@
     },
     {
       "source": "/eazyrecruitz_service/building-network",
-      "destination": "/maslo-talentsphere-page.html",
+      "destination": "/maslo-campus360-page.html",
       "permanent": true
     },
     {
@@ -359,7 +367,7 @@
     },
     {
       "source": "/assessments-students",
-      "destination": "/maslo-talentsphere-page.html",
+      "destination": "/maslo-campus360-page.html",
       "permanent": true
     },
     {
