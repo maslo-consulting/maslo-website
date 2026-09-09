@@ -42,6 +42,48 @@
         "Confirmed all 91 legacy WordPress 404 redirects are live and working correctly",
         "Added prominent MWCD Telangana empanelment banner to POSH page"
       ]
+    },
+    {
+      "week_ending": "2026-09-09",
+      "label": "3 weeks post-indexing-fixes; first real page (Languapro) shows in search results",
+      "search_console": {
+        "window": "last 3 months, data through 2026-09-06",
+        "clicks": 69,
+        "impressions": 1012,
+        "avg_position_desktop": 11.97,
+        "avg_position_mobile": 4.68,
+        "top_query": "maslo consulting",
+        "top_query_clicks": 46,
+        "non_branded_clicks": 0,
+        "notable": [
+          "maslo-languapro-page.html now indexed and appearing in search: 28 impressions, avg position 2.36 - first current-site page (besides homepage) to gain real search visibility",
+          "New local-intent queries appeared for first time: 'posh consultant near me' and 'posh trainer near me', both position 1, 1 impression each",
+          "Campus360, SimuLead, Audit360, POSH, Campus pages still not appearing in Pages report - indexing still in progress"
+        ]
+      },
+      "analytics": {
+        "window": "28 days, 2026-08-12 to 2026-09-08",
+        "active_users": 397,
+        "new_users": 389,
+        "avg_engagement_seconds": 20.67,
+        "sessions_direct": 365,
+        "sessions_google_organic": 51,
+        "sessions_chatgpt_ai_assistant": 9,
+        "sessions_copilot_ai_assistant": 1,
+        "sessions_gemini_ai_assistant": 1,
+        "homepage_bounce_rate": 0.8086,
+        "campus_page_bounce_rate": 0.881,
+        "posh_page_views": 26,
+        "posh_bounce_rate": 0.2,
+        "pagefactory_city_pages_with_views": true,
+        "singapore_active_users": 192,
+        "singapore_share_of_total": 0.4836
+      },
+      "actions_taken_this_week": [
+        "Renamed TalentSphere AI to Maslo Campus360 (new URL + 301 redirect from old URL)",
+        "Renamed Languapro to MasloLanguapro, Audit360 to MasloAudit360, Compliance360 to MasloCompliance360, SimuLead to Maslo SimuLead sitewide across all 3 properties",
+        "Rotated expired GitHub fine-grained PAT to new token (expires 2026-10-07)"
+      ]
     }
   ]
 }
