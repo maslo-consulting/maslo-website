@@ -459,6 +459,21 @@
       "source": "/companies/orglens",
       "destination": "/",
       "permanent": true
+    },
+    {
+      "source": "/companies/:slug*",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/eazyrecruitz_jobs/:slug*",
+      "destination": "/maslo-recruitment-page.html",
+      "permanent": true
+    },
+    {
+      "source": "/eazyrecruitz_service/:slug*",
+      "destination": "/maslo-recruitment-page.html",
+      "permanent": true
     }
   ]
 }
