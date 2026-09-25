@@ -84,6 +84,88 @@
         "Renamed Languapro to MasloLanguapro, Audit360 to MasloAudit360, Compliance360 to MasloCompliance360, SimuLead to Maslo SimuLead sitewide across all 3 properties",
         "Rotated expired GitHub fine-grained PAT to new token (expires 2026-10-07)"
       ]
+    },
+    {
+      "week_ending": "2026-09-16",
+      "label": "Coverage report investigation; only 2/132 pages indexed - fixed redirect gaps, requested indexing for 5 core pages",
+      "search_console": {
+        "window": "Coverage report (not Performance export), data through 2026-09-04",
+        "pages_indexed": 2,
+        "pages_not_indexed": 130,
+        "not_found_404": 93,
+        "redirect_error": 4,
+        "crawled_not_indexed": 23,
+        "discovered_not_indexed": 5,
+        "blocked_403": 4
+      },
+      "analytics": {
+        "window": "28 days, 2026-08-19 to 2026-09-15",
+        "active_users": 435,
+        "new_users": 433,
+        "sessions_direct": 402,
+        "sessions_google_organic": 40,
+        "sessions_chatgpt_ai_assistant": 13,
+        "homepage_bounce_rate": 0.848,
+        "campus_page_bounce_rate": 0.9153,
+        "singapore_active_users": 246,
+        "singapore_share_of_total": 0.5655
+      },
+      "actions_taken_this_week": [
+        "Re-triggered validation on 93 Not-found(404) URLs after confirming redirect fixes live",
+        "Added catch-all redirects for /companies/*, /eazyrecruitz_service/*, /eazyrecruitz_jobs/* - closed genuine gaps (whitebox-hr, effortless-job-search) never covered by original 91-URL list",
+        "Validated Redirect-error 4 pages (SimuLead, Campus, Audit360, old TalentSphere URL) all live and healthy - stale crawl data",
+        "Confirmed all 23 Crawled-not-indexed pages are legacy WordPress junk, no real pages affected",
+        "Found 5 real core pages (About, Labour Law, L&D, POSH, Recruitment) never crawled by Google at all - requested indexing for all 5"
+      ]
+    },
+    {
+      "week_ending": "2026-09-25",
+      "label": "First week with corroborated real growth - GSC clicks tripled, non-Singapore GA4 users up 13%, AI-referral sessions accelerating",
+      "search_console": {
+        "window": "last 3 months, data through 2026-09-22",
+        "clicks": 85,
+        "impressions": 1056,
+        "top_query": "maslo consulting",
+        "top_query_clicks": 56,
+        "non_branded_clicks": 0,
+        "last_7_days_clicks": 15,
+        "last_7_days_impressions": 119,
+        "last_7_days_ctr": 0.1261,
+        "prior_7_days_clicks": 5,
+        "prior_7_days_impressions": 75,
+        "prior_7_days_ctr": 0.0667,
+        "notable": [
+          "Clicks nearly tripled week-over-week (5 -> 15) and CTR doubled (6.7% -> 12.6%)",
+          "Still almost entirely branded search - 'maslo consulting' is 56 of 85 total clicks over 3 months",
+          "Only homepage and Languapro page earning any impressions among real pages - Campus360/Audit360/SimuLead/POSH/Labour Law/Recruitment still not showing, indexing requests only 9 days old",
+          "Legacy WordPress ghost pages (hr-consulting-2, companies/whitebox-hr, jobs_cat/software) still showing impressions but redirecting correctly"
+        ]
+      },
+      "analytics": {
+        "window": "28 days, 2026-08-28 to 2026-09-24",
+        "active_users": 476,
+        "new_users": 472,
+        "sessions_direct": 402,
+        "sessions_google_organic": 59,
+        "sessions_chatgpt_ai_assistant": 31,
+        "sessions_copilot_ai_assistant": 1,
+        "sessions_gemini_ai_assistant": 1,
+        "homepage_bounce_rate": 0.8494,
+        "campus_page_bounce_rate": 0.9155,
+        "campus360_views": 15,
+        "campus360_active_users": 11,
+        "campus360_bounce_rate": 0.4545,
+        "singapore_active_users": 262,
+        "singapore_share_of_total": 0.5504,
+        "non_singapore_active_users": 214
+      },
+      "actions_taken_this_week": [
+        "None this week - pure monitoring pull",
+        "Compared to prior 28-day window: non-Singapore active users grew 189 -> 214 (+13%), first real (non-Singapore) growth in several weeks",
+        "AI-referral sessions accelerating across 3 consecutive pulls: chatgpt.com sessions 9 -> 13 -> 31",
+        "Bounce rate climb (3 weeks running) has plateaued: homepage 84.8% -> 84.9%, Campus page 91.5% -> 91.5%",
+        "Built week-on-week SEO/AEO progress dashboard artifact"
+      ]
     }
   ]
 }
