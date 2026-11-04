@@ -3,13 +3,16 @@ window.masloPick=function(v){var s=document.querySelector('select[name=interest]
 /* Maslo free-tools nudge: small, dismissible card; shows once per few days, never on the tool pages. */
 (function(){
   var p=location.pathname;
-  if(/maslo-posh-audit-page|maslo-labour-codes-check-page/.test(p)){try{localStorage.setItem('maslo_ft_taken','1')}catch(e){}return;}
+  if(/maslo-posh-audit-page|maslo-labour-codes-check-page|maslo-hr-maturity-check-page|maslo-languapro-quick-test-page/.test(p)){try{localStorage.setItem('maslo_ft_taken','1')}catch(e){}return;}
   var ls={get:function(k){try{return localStorage.getItem(k)}catch(e){return null}},set:function(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
   var until=+ls.get('maslo_ft_until')||0; if(Date.now()<until) return;
   var m=new Date().getMonth(); /* Nov/Dec: POSH year-end first */
   var posh={h:'/maslo-posh-audit-page.html',t:'Year-end POSH check',s:'12 questions · 3 min · is your ICC audit-ready?',c:'#C9A84C'};
   var lab={h:'/maslo-labour-codes-check-page.html',t:'New Labour Codes check',s:'12 cards · 3 min · find your compliance gaps',c:'#3b82f6'};
+  var hr={h:'/maslo-hr-maturity-check-page.html',t:'HR maturity check',s:'10 cards · 3 min · how mature is your HR?',c:'#16a06a'};
+  var eng={h:'/maslo-languapro-quick-test-page.html',t:'English quick test',s:'5 questions · 90 sec · instant level',c:'#a855f7'};
   var list=(m>=9&&m<=11)?[posh,lab]:[lab,posh];
+  list.push(/languapro|campus/.test(p)?eng:hr);
   var css='#mftBox{position:fixed;left:18px;bottom:20px;width:300px;max-width:calc(100vw - 100px);z-index:900;background:#0B1F3A;border:1px solid rgba(201,168,76,.5);border-radius:12px;box-shadow:0 12px 36px rgba(0,0,0,.3);font-family:"DM Sans",sans-serif;color:#fff;padding:14px 14px 12px;transform:translateY(30px);opacity:0;transition:all .45s cubic-bezier(.2,.8,.2,1)}#mftBox.on{transform:none;opacity:1}#mftBox h4{font-family:"Cormorant Garamond",serif;font-size:19px;font-weight:600;margin:0 22px 8px 0;color:#fff}#mftBox a.r{display:block;text-decoration:none;color:#fff;background:rgba(255,255,255,.06);border-left:3px solid var(--c);border-radius:6px;padding:8px 10px;margin-bottom:6px}#mftBox a.r:hover{background:rgba(255,255,255,.12)}#mftBox a.r b{display:block;font-size:13px;font-weight:500}#mftBox a.r span{font-size:11px;color:rgba(255,255,255,.6)}#mftBox .x{position:absolute;top:8px;right:10px;background:none;border:none;color:rgba(255,255,255,.6);font-size:20px;cursor:pointer;line-height:1}#mftBox .n{background:none;border:none;color:rgba(255,255,255,.5);font-size:11px;cursor:pointer;padding:2px 0;font-family:inherit}@media(max-width:600px){#mftBox{left:10px;bottom:14px;width:auto;right:84px;max-width:none}}';
   function show(){
     if(document.getElementById('mftBox'))return;
