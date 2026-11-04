@@ -493,7 +493,7 @@
         <a href="/maslo-recruitment-page.html">Recruitment &amp; Staffing</a>
         <a href="/maslo-ld-page.html">Learning &amp; Development</a>
         <div style="border-top:0.5px solid rgba(201,168,76,0.2);margin:6px 0;"></div>
-        <a href="/maslo-posh-page.html#posh-suite" style="color:#C9A84C !important;font-size:11px;">&#9733; Free POSH audit</a>
+        <a href="/maslo-posh-audit-page.html" style="color:#C9A84C !important;font-size:11px;">&#9733; Free POSH audit</a>
         <a href="/maslo-labour-law-page.html#compliance360" style="color:#C9A84C !important;font-size:11px;">&#9733; Free compliance check</a>
       </div>
     </div>
@@ -549,8 +549,8 @@
         <h1>Build a workplace where<br>everyone feels <em>safe — and<br>knows it.</em></h1>
         <p class="hero-desc">End-to-end POSH compliance for Indian companies — Internal Committee setup, policy drafting, multi-level training, investigation support, and India's most comprehensive AI-powered POSH Management Suite.</p>
         <div class="hero-btns">
-          <a href="#contact" class="btn-gold">Book a free consultation</a>
-          <a href="#posh-suite" class="btn-outline-w">Explore the POSH AI Suite</a>
+          <a href="/maslo-posh-audit-page.html" class="btn-gold">Take the free year-end POSH check</a>
+          <a href="#contact" class="btn-outline-w">Book a free consultation</a>
         </div>
       </div>
       <div class="hero-card">
@@ -589,6 +589,10 @@
   </div>
 </div>
 
+<div class="ye-strip" style="background:linear-gradient(90deg,#C9A84C,#E2C97E);padding:18px 24px;text-align:center;color:#0B1F3A;font-size:15px;line-height:1.5;">
+  <strong>Year-end POSH deadline:</strong> <span class="ye-days">the calendar year is closing</span> — is your Internal Committee audit-ready?
+  <a href="/maslo-posh-audit-page.html" style="color:#0B1F3A;font-weight:600;text-decoration:underline;margin-left:6px;white-space:nowrap;">Take the free 3-minute check &rarr;</a>
+</div>
 <div class="trust-strip">
   <div class="trust-item">POSH Act 2013 Certified</div>
   <div class="trust-item">Internal Committee (IC) Setup &amp; Audit</div>
@@ -1113,4 +1117,7 @@
   });
 })();
 </script>
-
+<script>
+(function(){var n=new Date(),e=new Date(n.getFullYear(),11,31,23,59,59),d=Math.ceil((e-n)/86400000);
+if(d>=0&&d<=120){document.querySelectorAll('.ye-days').forEach(function(el){el.textContent=d+(d===1?' day':' days')+' left in '+n.getFullYear();});}})();
+</script>
