@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://masloconsulting.com/sitemap.xml
+Sitemap: https://www.masloconsulting.com/sitemap.xml
