@@ -166,6 +166,62 @@
         "Bounce rate climb (3 weeks running) has plateaued: homepage 84.8% -> 84.9%, Campus page 91.5% -> 91.5%",
         "Built week-on-week SEO/AEO progress dashboard artifact"
       ]
+    },
+    {
+      "week_ending": "2026-11-04",
+      "label": "6 weeks after last pull - AI referrals up, bounce improved, but search clicks fell back from the Sep peak and only 2 real pages earn impressions",
+      "search_console": {
+        "window": "last 3 months, data through 2026-11-01",
+        "clicks": 101,
+        "impressions": 1078,
+        "top_query": "maslo consulting",
+        "top_query_clicks": 64,
+        "non_branded_clicks": 1,
+        "weekly_clicks": {
+          "2026-09-14": 15,
+          "2026-09-21": 10,
+          "2026-09-28": 9,
+          "2026-10-05": 12,
+          "2026-10-12": 4,
+          "2026-10-19": 3,
+          "2026-10-26": 8
+        },
+        "languapro_page_clicks": 5,
+        "languapro_page_impressions": 151,
+        "languapro_avg_position": 3.26,
+        "maslo_query_impressions": 330,
+        "maslo_query_clicks": 5,
+        "maslo_query_position": 4.02,
+        "notable": [
+          "Weekly clicks peaked at 15 (Sep 14-20) and have since drifted down to 3-12; the Sep 25 jump did not sustain",
+          "Pages report still lists only homepage and Languapro as real pages; Campus360/Audit360/SimuLead/POSH/Labour Law/Recruitment/About/L&D still earn no impressions ~6 weeks after indexing requests",
+          "First non-brand-name click: 'hr job openings' (1 click). 'languapro' 2 clicks",
+          "'maslo' query: 330 impressions, 5 clicks (1.5% CTR) at position 4.0 - biggest brand-disambiguation opportunity"
+        ]
+      },
+      "analytics": {
+        "window": "28 days, 2026-10-07 to 2026-11-03",
+        "active_users": 407,
+        "new_users": 403,
+        "avg_engagement_seconds": 13.8,
+        "sessions_direct": 344,
+        "sessions_google_organic": 40,
+        "sessions_chatgpt_ai_assistant": 49,
+        "sessions_chatgpt_organic": 6,
+        "first_user_chatgpt_ai_assistant": 37,
+        "homepage_bounce_rate": 0.7741,
+        "campus_page_bounce_rate": 0.8947,
+        "singapore_active_users": 205,
+        "singapore_share_of_total": 0.5037,
+        "non_singapore_active_users": 202,
+        "campus360_views": 3,
+        "languapro_page_views": 13,
+        "languapro_bounce_rate": 0.2857,
+        "notable": "New-user spike Oct 13-16 (41/34/34/29 per day) not explained by any search/AI source"
+      },
+      "actions_taken_this_week": [
+        "Monitoring pull only - no site changes logged since Sep 25"
+      ]
     }
   ]
 }
