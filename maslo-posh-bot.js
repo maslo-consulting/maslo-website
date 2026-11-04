@@ -33,7 +33,7 @@
    {k:'case study documents templates letters charge sheet notice',a:'Typical documents in a POSH case include a complaint acknowledgement, notice to the respondent, inquiry notices, witness statements, the inquiry report, findings, and closure letters. The Maslo POSH Management Suite includes templates for each stage.'}
   ];
   var CHIPS=['Who needs an Internal Committee?','What is the complaint time limit?','How is the IC composed?','What is the penalty for non-compliance?','What goes in the annual report?'];
-  var STOP='a an the is are of to in for on and or do does we our my i you it with be can what how when who which that this at by from as if so about should would will have has any'.split(' ');
+  var STOP='posh rule rules law legal a an the is are of to in for on and or do does we our my i you it with be can what how when who which that this at by from as if so about should would will have has any'.split(' ');
   function tok(s){return s.toLowerCase().replace(/[^a-z0-9₹ ]/g,' ').split(/\s+/).filter(function(w){return w&&STOP.indexOf(w)<0})}
   function stem(w){return w.replace(/(ing|ed|es|s)$/,'')}
   var IDX=KB.map(function(e){var w={};tok(e.k).forEach(function(t){w[stem(t)]=1});return w});
