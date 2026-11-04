@@ -815,26 +815,39 @@
   </div>
 </section>
 <!-- RELATED READING -->
-<section class="bg-offwhite">
-  <div class="section-inner">
-    <div class="section-tag">From the knowledge hub</div>
-    <div class="section-title">Related Reading</div>
-    <div class="services-grid">
-      <div class="svc-card">
-        <h3 style="font-size:16px;"><a href="https://knowledge.masloconsulting.com/posh-act-india-guide" style="color:inherit;text-decoration:none;">What is the POSH Act? A Complete Guide for Employers</a></h3>
-        <p>Who it applies to, what's required, and the penalties for non-compliance.</p>
-        <a href="https://knowledge.masloconsulting.com/posh-act-india-guide" class="svc-link">Read more →</a>
-      </div>
-      <div class="svc-card">
-        <h3 style="font-size:16px;"><a href="https://knowledge.masloconsulting.com/posh-icc-formation-requirements" style="color:inherit;text-decoration:none;">How to Form an Internal Complaints Committee (ICC) under POSH</a></h3>
-        <p>Composition, eligibility, and the steps to constitute a compliant ICC.</p>
-        <a href="https://knowledge.masloconsulting.com/posh-icc-formation-requirements" class="svc-link">Read more →</a>
-      </div>
-      <div class="svc-card">
-        <h3 style="font-size:16px;"><a href="https://knowledge.masloconsulting.com/posh-annual-report-requirements" style="color:inherit;text-decoration:none;">POSH Annual Report — What Employers Must Submit and When</a></h3>
-        <p>What goes into the report, submission deadlines, and who it goes to.</p>
-        <a href="https://knowledge.masloconsulting.com/posh-annual-report-requirements" class="svc-link">Read more →</a>
-      </div>
+<style>
+.rr-sec{background:#0B1F3A;padding:72px 48px;position:relative;overflow:hidden;}
+.rr-sec::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 70% at 50% 0%,rgba(201,168,76,.12),transparent 70%);}
+.rr-in{max-width:1180px;margin:0 auto;position:relative;}
+.rr-head{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:30px;}
+.rr-tag{display:block;color:#C9A84C;font-size:12px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:8px;}
+.rr-head h2{font-family:var(--font-display);font-size:clamp(30px,3.4vw,42px);color:#fff;font-weight:600;line-height:1.15;margin:0 0 6px;}
+.rr-head p{color:rgba(255,255,255,.68);font-size:15px;margin:0;max-width:520px;}
+.rr-all{color:#C9A84C;border:1px solid rgba(201,168,76,.5);padding:11px 22px;border-radius:30px;text-decoration:none;font-size:13.5px;font-weight:500;white-space:nowrap;transition:all .2s;}
+.rr-all:hover{background:#C9A84C;color:#0B1F3A;}
+.rr-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+.rr-card{position:relative;display:flex;flex-direction:column;background:linear-gradient(180deg,#13335c,#0F2744);border:1px solid rgba(201,168,76,.22);border-radius:14px;padding:24px 22px 20px;text-decoration:none;color:inherit;overflow:hidden;transition:transform .25s,box-shadow .25s,border-color .25s;}
+.rr-card::after{content:'';position:absolute;left:0;right:0;top:0;height:3px;background:linear-gradient(90deg,#C9A84C,#E2C97E);transform:scaleX(0);transform-origin:left;transition:transform .35s;}
+.rr-card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(0,0,0,.4);border-color:#C9A84C;}
+.rr-card:hover::after{transform:scaleX(1);}
+.rr-num{font-family:var(--font-display);font-size:46px;line-height:1;color:rgba(201,168,76,.28);font-weight:600;margin-bottom:10px;}
+.rr-cat{display:inline-block;align-self:flex-start;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:#C9A84C;background:rgba(201,168,76,.12);border:1px solid rgba(201,168,76,.35);padding:3px 10px;border-radius:20px;margin-bottom:12px;}
+.rr-card h3{font-family:var(--font-display);font-size:23px;color:#fff;font-weight:600;line-height:1.22;margin:0 0 8px;}
+.rr-card p{font-size:13.5px;color:rgba(255,255,255,.68);line-height:1.55;flex:1;margin:0 0 16px;}
+.rr-go{font-size:13px;color:#C9A84C;font-weight:500;display:flex;align-items:center;gap:6px;}
+.rr-go i{font-style:normal;transition:transform .2s;}.rr-card:hover .rr-go i{transform:translateX(5px);}
+@media(max-width:900px){.rr-sec{padding:48px 20px;}.rr-grid{grid-template-columns:1fr;}}
+</style>
+<section class="rr-sec">
+  <div class="rr-in">
+    <div class="rr-head">
+      <div><span class="rr-tag">Free POSH guides</span><h2>Learn the basics before you talk to us</h2><p>Plain-English guides written by our POSH practitioners.</p></div>
+      <a class="rr-all" href="https://knowledge.masloconsulting.com">Browse all 17 guides →</a>
+    </div>
+    <div class="rr-grid">
+      <a class="rr-card" href="https://knowledge.masloconsulting.com/posh-act-india-guide"><div class="rr-num">01</div><span class="rr-cat">The Act</span><h3>What is the POSH Act? A complete guide for employers</h3><p>Who it applies to, what's required, and the penalties for non-compliance.</p><span class="rr-go">Read the guide <i>→</i></span></a>
+      <a class="rr-card" href="https://knowledge.masloconsulting.com/posh-icc-formation-requirements"><div class="rr-num">02</div><span class="rr-cat">Committee</span><h3>How to form an Internal Committee under POSH</h3><p>Composition, eligibility, and the steps to constitute a compliant committee.</p><span class="rr-go">Read the guide <i>→</i></span></a>
+      <a class="rr-card" href="https://knowledge.masloconsulting.com/posh-annual-report-requirements"><div class="rr-num">03</div><span class="rr-cat">Reporting</span><h3>POSH annual report: what to submit and when</h3><p>What goes into the report, submission deadlines, and who it goes to.</p><span class="rr-go">Read the guide <i>→</i></span></a>
     </div>
   </div>
 </section>
