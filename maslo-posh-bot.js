@@ -89,8 +89,19 @@
       })
       .catch(function(){clearTimeout(to);if(ty.parentNode)M.removeChild(ty);if(WEAK){var b=add(esc(WEAK.a),'bot');var a=el('a','pb-act','Talk to a POSH specialist');a.href=wa(q);a.target='_blank';a.rel='noopener';b.appendChild(a)}else fallback(q)});
   }
+  var QN=0,QS=[];try{QN=+sessionStorage.getItem('pb_qn')||0;QS=JSON.parse(sessionStorage.getItem('pb_qs')||'[]')}catch(e){}
+  var LIMIT=3,HANDED=false;
+  function expertForm(q){
+    HANDED=true;inp.placeholder='Our expert will contact you';
+    var b=add('You have asked '+LIMIT+' questions, so let us connect you with a Maslo POSH expert who can answer the rest properly. Share your details and we will call or email you within 2 business hours (Mon to Sat, 9 to 6 IST).<form id="pbX" style="margin-top:10px;display:grid;gap:7px"><input name="name" required placeholder="Your name" style="border:1px solid #D8D3C4;border-radius:6px;padding:9px 10px;font:14px DM Sans,sans-serif"><input name="contact" required placeholder="Phone number or email" style="border:1px solid #D8D3C4;border-radius:6px;padding:9px 10px;font:14px DM Sans,sans-serif"><textarea name="question" rows="3" required style="border:1px solid #D8D3C4;border-radius:6px;padding:9px 10px;font:14px DM Sans,sans-serif;resize:vertical"></textarea><button style="background:#C9A84C;border:none;border-radius:6px;padding:10px;cursor:pointer;font:600 13.5px DM Sans,sans-serif;color:#0B1F3A">Connect me to an expert</button></form><a class="pb-act" style="margin-top:8px" target="_blank" rel="noopener" href="'+wa(q)+'">Or chat on WhatsApp</a>','bot');
+    var f=b.querySelector('#pbX');f.id='';f.elements.question.value=q;
+    f.onsubmit=function(e){e.preventDefault();var fd=new FormData(f);fd.append('earlier_questions',QS.join(' | '));fd.append('source','posh-chatbot-expert-handoff');fd.append('_subject','POSH Consultant: expert callback request');var bt=f.querySelector('button');bt.disabled=true;bt.textContent='Sending…';
+      fetch('https://formspree.io/f/xrerbnyv',{method:'POST',body:fd,headers:{Accept:'application/json'}}).then(function(r){if(!r.ok)throw 0;f.outerHTML='<div style="margin-top:8px"><b>Thank you.</b> A Maslo POSH expert will contact you shortly.</div>';if(window.gtag)gtag('event','posh_bot_expert_request')}).catch(function(){bt.disabled=false;bt.textContent='Try again'})};
+  }
   function ask(q){
     q=q.trim();if(!q)return;add(esc(q),'me');inp.value='';
+    if(QN>=LIMIT){QS.push(q);try{sessionStorage.setItem('pb_qs',JSON.stringify(QS))}catch(e){}setTimeout(function(){if(HANDED&&box.querySelector('#pbX')){add('Please use the form above and our expert will answer this too.','bot')}else expertForm(q)},300);return}
+    QN++;QS.push(q);try{sessionStorage.setItem('pb_qn',QN);sessionStorage.setItem('pb_qs',JSON.stringify(QS))}catch(e){}
     if(window.gtag)gtag('event','posh_bot_question');
     setTimeout(function(){
       if(/^(hi|hello|hey|namaste|good (morning|afternoon|evening))\b/i.test(q)&&q.split(' ').length<4){add('Hello! I can answer questions about the POSH Act, Internal Committees, complaints and compliance. What would you like to know?','bot');chips(CHIPS.slice(0,3));return}
