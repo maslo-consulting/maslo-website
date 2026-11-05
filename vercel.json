@@ -1,6 +1,11 @@
 {
   "redirects": [
     {
+      "source": "/maslo-languapro-quick-test-page.html",
+      "destination": "/maslo-languapro-page.html",
+      "permanent": true
+    },
+    {
       "source": "/maslo-talentsphere-page.html",
       "destination": "/maslo-campus360-page.html",
       "permanent": true
