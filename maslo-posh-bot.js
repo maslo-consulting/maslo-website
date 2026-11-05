@@ -38,11 +38,12 @@
   function stem(w){return w.replace(/(ing|ed|es|s)$/,'')}
   var IDX=KB.map(function(e){var w={};tok(e.k).forEach(function(t){w[stem(t)]=1});return w});
   var DF={};IDX.forEach(function(w){Object.keys(w).forEach(function(t){DF[t]=(DF[t]||0)+1})});
-  var H=[],LAST=0,STRONG=4.5,WEAK=null;
+  var H=[],LAST=0,COV=0,STRONG=4.5,WEAK=null;
   function top(q){var t=tok(q).map(stem),sc=[];IDX.forEach(function(w,i){var x=0;t.forEach(function(y){if(w[y])x+=Math.log(1+KB.length/DF[y])});if(x>0)sc.push([x,i])});sc.sort(function(a,b){return b[0]-a[0]});return sc.slice(0,3).map(function(p){return KB[p[1]]})}
   function answer(q){
     var t=tok(q).map(stem),best=-1,bs=0;
     IDX.forEach(function(w,i){var s=0;t.forEach(function(x){if(w[x])s+=Math.log(1+KB.length/DF[x])});if(s>bs){bs=s;best=i}});
+    var mc=0;if(best>-1)t.forEach(function(x){if(IDX[best][x])mc++});COV=t.length?mc/t.length:0;
     LAST=bs;return bs>=1.5&&best>-1?KB[best]:null;
   }
   var POSHWORDS=/posh|harass|ic\b|icc|internal committee|complain|committee|workplace|sexual|inquiry|respondent|complainant|act 2013|local committee|district officer|annual report/i;
@@ -105,10 +106,10 @@
     if(window.gtag)gtag('event','posh_bot_question');
     setTimeout(function(){
       if(/^(hi|hello|hey|namaste|good (morning|afternoon|evening))\b/i.test(q)&&q.split(' ').length<4){add('Hello! I can answer questions about the POSH Act, Internal Committees, complaints and compliance. What would you like to know?','bot');chips(CHIPS.slice(0,3));return}
-      var r=answer(q),weak=r&&LAST<STRONG?r:null;if(weak)r=null;
+      var r=answer(q),weak=r&&(LAST<STRONG||COV<0.6)?r:null;if(weak)r=null;
       if(r){var h=esc(r.a);if(r.link)h+='<br><br><a href="'+r.link.h+'">'+esc(r.link.t)+' →</a>';var b=add(h,'bot');if(r.human){var a=el('a','pb-act','Talk to a POSH specialist');a.href=wa(q);a.target='_blank';a.rel='noopener';b.appendChild(el('div','',''));b.appendChild(a)}}
       else if(!POSHWORDS.test(q)){add('I can only help with POSH (Prevention of Sexual Harassment) questions. Try one of these, or talk to our team.','bot');chips(CHIPS.slice(0,3))}
-      else{WEAK=weak;aiAsk(q)}
+      else{WEAK=weak&&COV>=0.4?weak:null;aiAsk(q)}
     },350);
   }
   function open(){hideTip();box.classList.add('open');btn.style.display='none';if(!started){started=true;add('Hello, I\'m the Maslo POSH Consultant, an AI assistant trained on the POSH Act. Ask me about Internal Committees, complaints, timelines, penalties or annual reports, and I will give you a clear answer.','bot');chips(CHIPS)}setTimeout(function(){inp.focus()},50);if(window.gtag)gtag('event','posh_bot_open')}
