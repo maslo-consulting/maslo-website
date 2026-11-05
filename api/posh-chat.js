@@ -1,5 +1,5 @@
 /* Maslo POSH Consultant: AI answers via Google Gemini (free tier). Key stays server-side.
-   Env vars (Vercel): GEMINI_API_KEY (required), GEMINI_MODEL (optional, default gemini-2.5-flash-lite) */
+   Env vars (Vercel): GEMINI_API_KEY (required), GEMINI_MODEL (optional, default gemini-3.5-flash-lite) */
 var hits = {};
 function limited(ip) {
   var now = Date.now(), a = (hits[ip] || []).filter(function (t) { return now - t < 600000; });
@@ -33,26 +33,32 @@ module.exports = async function (req, res) {
     return { role: h.r === "bot" ? "model" : "user", parts: [{ text: String(h.t || "").slice(0, 600) }] };
   });
   var contents = hist.concat([{ role: "user", parts: [{ text: "REFERENCE FACTS (vetted by Maslo):\n" + (ctx.length ? ctx.join("\n---\n") : "(none matched)") + "\n\nQUESTION: " + q }] }]);
-  var model = process.env.GEMINI_MODEL || "gemini-2.5-flash-lite";
+  var models = (process.env.GEMINI_MODEL ? [process.env.GEMINI_MODEL] : []).concat(["gemini-3.5-flash-lite", "gemini-3.1-flash-lite"]);
+  var payload = JSON.stringify({
+    systemInstruction: { parts: [{ text: SYSTEM }] },
+    contents: contents,
+    generationConfig: { temperature: 0.2, maxOutputTokens: 400 }
+  });
   try {
-    var ctl = new AbortController(), to = setTimeout(function () { ctl.abort(); }, 12000);
-    var r = await fetch("https://generativelanguage.googleapis.com/v1beta/models/" + model + ":generateContent", {
-      method: "POST", signal: ctl.signal,
-      headers: { "Content-Type": "application/json", "x-goog-api-key": key },
-      body: JSON.stringify({
-        systemInstruction: { parts: [{ text: SYSTEM }] },
-        contents: contents,
-        generationConfig: { temperature: 0.2, maxOutputTokens: 400 }
-      })
-    });
-    clearTimeout(to);
-    if (!r.ok) { res.statusCode = 502; return res.end(JSON.stringify({ error: "upstream", status: r.status })); }
-    var d = await r.json();
-    var t = d && d.candidates && d.candidates[0] && d.candidates[0].content && d.candidates[0].content.parts;
-    t = t ? t.map(function (p) { return p.text || ""; }).join("").trim() : "";
-    if (!t) { res.statusCode = 502; return res.end(JSON.stringify({ error: "empty_answer" })); }
-    res.setHeader("Content-Type", "application/json");
-    return res.end(JSON.stringify({ a: t.slice(0, 1200) }));
+    var last = 0;
+    for (var i = 0; i < models.length; i++) {
+      var ctl = new AbortController(), to = setTimeout(function () { ctl.abort(); }, 12000);
+      var r = await fetch("https://generativelanguage.googleapis.com/v1beta/models/" + models[i] + ":generateContent", {
+        method: "POST", signal: ctl.signal,
+        headers: { "Content-Type": "application/json", "x-goog-api-key": key },
+        body: payload
+      });
+      clearTimeout(to);
+      if (r.status === 404) { last = 404; continue; }
+      if (!r.ok) { res.statusCode = 502; return res.end(JSON.stringify({ error: "upstream", status: r.status })); }
+      var d = await r.json();
+      var t = d && d.candidates && d.candidates[0] && d.candidates[0].content && d.candidates[0].content.parts;
+      t = t ? t.map(function (p) { return p.text || ""; }).join("").trim() : "";
+      if (!t) { res.statusCode = 502; return res.end(JSON.stringify({ error: "empty_answer" })); }
+      res.setHeader("Content-Type", "application/json");
+      return res.end(JSON.stringify({ a: t.slice(0, 1200) }));
+    }
+    res.statusCode = 502; return res.end(JSON.stringify({ error: "upstream", status: last }));
   } catch (e) {
     res.statusCode = 504; return res.end(JSON.stringify({ error: "timeout" }));
   }
