@@ -38,37 +38,69 @@
   function stem(w){return w.replace(/(ing|ed|es|s)$/,'')}
   var IDX=KB.map(function(e){var w={};tok(e.k).forEach(function(t){w[stem(t)]=1});return w});
   var DF={};IDX.forEach(function(w){Object.keys(w).forEach(function(t){DF[t]=(DF[t]||0)+1})});
+  var H=[],LAST=0,STRONG=4.5,WEAK=null;
+  function top(q){var t=tok(q).map(stem),sc=[];IDX.forEach(function(w,i){var x=0;t.forEach(function(y){if(w[y])x+=Math.log(1+KB.length/DF[y])});if(x>0)sc.push([x,i])});sc.sort(function(a,b){return b[0]-a[0]});return sc.slice(0,3).map(function(p){return KB[p[1]]})}
   function answer(q){
     var t=tok(q).map(stem),best=-1,bs=0;
     IDX.forEach(function(w,i){var s=0;t.forEach(function(x){if(w[x])s+=Math.log(1+KB.length/DF[x])});if(s>bs){bs=s;best=i}});
-    return bs>=1.5&&best>-1?KB[best]:null;
+    LAST=bs;return bs>=1.5&&best>-1?KB[best]:null;
   }
   var POSHWORDS=/posh|harass|ic\b|icc|internal committee|complain|committee|workplace|sexual|inquiry|respondent|complainant|act 2013|local committee|district officer|annual report/i;
   function el(t,c,h){var e=document.createElement(t);if(c)e.className=c;if(h!==undefined)e.innerHTML=h;return e}
   function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;')}
   var css='#pbBtn{position:fixed;right:22px;bottom:92px;z-index:950;background:#0B1F3A;color:#C9A84C;border:2px solid #C9A84C;border-radius:30px;padding:11px 18px;font:500 14px "DM Sans",sans-serif;cursor:pointer;box-shadow:0 8px 24px rgba(0,0,0,.3);display:flex;gap:8px;align-items:center}#pbBtn:hover{background:#13335c}#pbBox{position:fixed;right:22px;bottom:92px;width:350px;max-width:calc(100vw - 24px);height:480px;max-height:calc(100vh - 120px);z-index:951;background:#fff;border-radius:14px;box-shadow:0 16px 48px rgba(0,0,0,.35);display:none;flex-direction:column;overflow:hidden;font-family:"DM Sans",sans-serif}#pbBox.open{display:flex}.pb-h{background:#0B1F3A;color:#fff;padding:12px 14px;display:flex;justify-content:space-between;align-items:center}.pb-h b{font:600 18px "Cormorant Garamond",serif;display:block}.pb-h span{font-size:11px;color:rgba(255,255,255,.65)}.pb-h button{background:none;border:none;color:#fff;font-size:22px;cursor:pointer}.pb-m{flex:1;overflow-y:auto;padding:12px;background:#F8F6F1}.pb-b{max-width:88%;padding:9px 12px;border-radius:12px;margin-bottom:8px;font-size:13.5px;line-height:1.5;color:#1a1a1a}.pb-b.bot{background:#fff;border:1px solid #E5E0D3}.pb-b.me{background:#0B1F3A;color:#fff;margin-left:auto}.pb-b a{color:#0B1F3A;font-weight:500}.pb-c{display:flex;flex-wrap:wrap;gap:6px;margin:4px 0 8px}.pb-c button,.pb-act{background:#fff;border:1px solid #C9A84C;color:#0B1F3A;border-radius:16px;padding:5px 10px;font:12px "DM Sans",sans-serif;cursor:pointer;text-decoration:none;display:inline-block}.pb-c button:hover,.pb-act:hover{background:#FBF6E7}.pb-f{display:flex;border-top:1px solid #E5E0D3;background:#fff}.pb-f input{flex:1;border:none;padding:12px;font:14px "DM Sans",sans-serif;outline:none}.pb-f button{background:#C9A84C;color:#0B1F3A;border:none;padding:0 16px;font:500 13px "DM Sans",sans-serif;cursor:pointer}.pb-d{font-size:10.5px;color:#8A8780;text-align:center;padding:4px 8px;background:#fff}@media(max-width:600px){#pbBtn{right:14px;bottom:88px}#pbBox{right:12px;bottom:88px}}@media print{#pbBtn,#pbBox{display:none!important}}';
   var st=el('style');st.textContent=css;document.head.appendChild(st);
-  var btn=el('button','','💬 Ask about POSH');btn.id='pbBtn';btn.setAttribute('aria-label','Open POSH assistant');
-  var box=el('div');box.id='pbBox';box.setAttribute('role','dialog');box.setAttribute('aria-label','POSH assistant');
-  box.innerHTML='<div class="pb-h"><div><b>POSH Assistant</b><span>POSH Act questions only · by Maslo</span></div><button aria-label="Close">×</button></div><div class="pb-m" id="pbM"></div><form class="pb-f" id="pbF"><input id="pbI" placeholder="Ask a POSH question…" autocomplete="off" maxlength="200"><button>Send</button></form><div class="pb-d">General information, not legal advice.</div>';
+
+  var AV='<svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="32" fill="#D4B25A"/><path d="M13 58c1-12 9-18 19-18s18 6 19 18z" fill="#0B1F3A"/><circle cx="32" cy="25" r="11" fill="#F3E3C0"/><path d="M20 24c0-9 6-14 12-14s12 5 12 14c-3-5-7-7-12-7s-9 2-12 7z" fill="#0B1F3A"/><path d="M27 41l5 6 5-6" fill="#fff"/></svg>';
+  var css2='#pbBtn{right:22px;bottom:92px;padding:8px 20px 8px 8px;gap:12px;border-radius:40px;background:#0B1F3A;border:2px solid #C9A84C;box-shadow:0 10px 30px rgba(11,31,58,.45);text-align:left;animation:pbPulse 2.6s ease-out 1.2s 3}#pbBtn .av{position:relative;width:52px;height:52px;flex:none}#pbBtn .av svg{width:52px;height:52px;display:block}#pbBtn .av i{position:absolute;right:0;bottom:1px;width:13px;height:13px;border-radius:50%;background:#22c55e;border:2px solid #0B1F3A}#pbBtn .tx b{display:block;font:600 17px "Cormorant Garamond",serif;color:#fff;line-height:1.1}#pbBtn .tx span{font-size:11.5px;color:#C9A84C}@keyframes pbPulse{0%{box-shadow:0 0 0 0 rgba(201,168,76,.6)}100%{box-shadow:0 0 0 18px rgba(201,168,76,0)}}#pbTip{position:fixed;right:22px;bottom:170px;z-index:949;max-width:250px;background:#fff;border:1px solid #E5E0D3;border-radius:14px 14px 4px 14px;box-shadow:0 10px 28px rgba(0,0,0,.22);padding:11px 30px 11px 13px;font:13.5px/1.45 "DM Sans",sans-serif;color:#1a1a1a;display:none;cursor:pointer}#pbTip.on{display:block;animation:pbIn .4s ease}#pbTip u{position:absolute;right:8px;top:5px;text-decoration:none;color:#999;font-size:17px}@keyframes pbIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}#pbBox{width:420px;height:640px;max-height:calc(100vh - 110px);border-radius:18px;bottom:24px}.pb-h{padding:16px 16px;gap:12px;justify-content:flex-start;background:linear-gradient(135deg,#0B1F3A,#13335c)}.pb-h .av{position:relative;width:56px;height:56px;flex:none}.pb-h .av svg{width:56px;height:56px;display:block}.pb-h .av i{position:absolute;right:1px;bottom:2px;width:13px;height:13px;border-radius:50%;background:#22c55e;border:2px solid #0B1F3A}.pb-h .tt{flex:1}.pb-h .tt b{font-size:21px;line-height:1.1}.pb-h .tt span{display:block;margin-top:3px;font-size:12px}.pb-b{font-size:14.5px;line-height:1.55;max-width:92%}.pb-tag{display:block;margin-top:6px;font-size:11px;color:#8A8780}.pb-ty{display:inline-flex;gap:4px}.pb-ty i{width:7px;height:7px;border-radius:50%;background:#B8923A;animation:pbDot 1s infinite}.pb-ty i:nth-child(2){animation-delay:.15s}.pb-ty i:nth-child(3){animation-delay:.3s}@keyframes pbDot{0%,80%,100%{opacity:.25}40%{opacity:1}}.pb-f input{padding:15px;font-size:15px}.pb-priv{padding:6px 12px 0;font-size:11px;color:#8A8780;background:#fff}@media(max-width:560px){#pbBox{right:8px;left:8px;width:auto;bottom:8px;height:calc(100vh - 16px);max-height:none}#pbBtn .tx span{display:none}#pbTip{right:14px;bottom:166px}}';
+  var st2=document.createElement('style');st2.textContent=css2;document.head.appendChild(st2);
+  var btn=el('button','','<span class="av">'+AV+'<i></i></span><span class="tx"><b>Maslo POSH Consultant</b><span>AI-powered · ask me anything on POSH</span></span>');btn.id='pbBtn';btn.setAttribute('aria-label','Open Maslo POSH Consultant');
+  var box=el('div');box.id='pbBox';box.setAttribute('role','dialog');box.setAttribute('aria-label','Maslo POSH Consultant');
+  box.innerHTML='<div class="pb-h"><span class="av">'+AV+'<i></i></span><div class="tt"><b>Maslo POSH Consultant</b><span>AI consultant · online now · POSH Act questions only</span></div><button aria-label="Close">×</button></div><div class="pb-m" id="pbM"></div><form class="pb-f" id="pbF"><input id="pbI" placeholder="Ask a POSH question…" autocomplete="off" maxlength="200"><button>Send</button></form><div class="pb-priv">Please do not share names or case details here.</div><div class="pb-d">AI-assisted general information, not legal advice.</div>';
   document.body.appendChild(btn);document.body.appendChild(box);
+  var tip=el('div','','Questions on POSH compliance? Ask our POSH Consultant. It is free.<u>×</u>');tip.id='pbTip';document.body.appendChild(tip);
+  var tipSeen=false;try{tipSeen=sessionStorage.getItem('pb_tip')}catch(e){}
+  if(!tipSeen)setTimeout(function(){if(!box.classList.contains('open')){tip.classList.add('on')}},6000);
+  function hideTip(){tip.classList.remove('on');try{sessionStorage.setItem('pb_tip','1')}catch(e){}}
+  tip.onclick=function(e){hideTip();if(e.target.tagName!=='U')open()};
   var M=box.querySelector('#pbM'),inp=box.querySelector('#pbI'),started=false;
   function add(h,c){var b=el('div','pb-b '+c,h);M.appendChild(b);M.scrollTop=M.scrollHeight;return b}
   function chips(arr){var w=el('div','pb-c');arr.forEach(function(t){var b=el('button','',esc(t));b.type='button';b.onclick=function(){ask(t)};w.appendChild(b)});M.appendChild(w);M.scrollTop=M.scrollHeight}
   function wa(q){return 'https://wa.me/919989066684?text='+encodeURIComponent('Hi Maslo, POSH question: '+q)}
+  function fallback(q){
+    var b2=add('I don\'t have a vetted answer for that yet. Our POSH specialists can help. Leave your email and we will reply, or chat on WhatsApp.<form id="pbQ" style="margin-top:8px;display:flex;gap:6px"><input name="email" type="email" required placeholder="Your email" style="flex:1;border:1px solid #D8D3C4;border-radius:6px;padding:6px 8px;font:13px DM Sans,sans-serif"><button style="background:#C9A84C;border:none;border-radius:6px;padding:6px 10px;cursor:pointer;font:500 12px DM Sans,sans-serif">Send</button></form><a class="pb-act" style="margin-top:8px" target="_blank" rel="noopener" href="'+wa(q)+'">Chat on WhatsApp</a>','bot');
+    var f=b2.querySelector('#pbQ');f.id='';f.onsubmit=function(e){e.preventDefault();var fd=new FormData(f);fd.append('question',q);fd.append('source','posh-chatbot-unanswered');fd.append('_subject','POSH chatbot — unanswered question');fetch('https://formspree.io/f/xrerbnyv',{method:'POST',body:fd,headers:{Accept:'application/json'}}).catch(function(){});f.outerHTML='<div style="margin-top:8px">Thanks — we will reply by email.</div>'}
+  }
+  function aiAsk(q){
+    var ty=add('<span class="pb-ty"><i></i><i></i><i></i></span>','bot');
+    var ctx=top(q).map(function(e){return e.a});
+    var hist=H.slice(-4);
+    var ctl=window.AbortController?new AbortController():null,to=setTimeout(function(){if(ctl)ctl.abort()},14000);
+    fetch('/api/posh-chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({q:q,ctx:ctx,hist:hist}),signal:ctl?ctl.signal:undefined})
+      .then(function(r){clearTimeout(to);if(!r.ok)throw 0;return r.json()})
+      .then(function(d){
+        if(!d||!d.a)throw 0;
+        M.removeChild(ty);
+        var h=esc(d.a).replace(/\n+/g,'<br><br>');
+        var b=add(h+'<span class="pb-tag">AI-generated general information, not legal advice.</span>','bot');
+        var a=el('a','pb-act','Talk to a POSH specialist');a.href=wa(q);a.target='_blank';a.rel='noopener';b.appendChild(a);
+        H.push({r:'me',t:q});H.push({r:'bot',t:d.a});
+        if(window.gtag)gtag('event','posh_bot_ai_answer');
+      })
+      .catch(function(){clearTimeout(to);if(ty.parentNode)M.removeChild(ty);if(WEAK){var b=add(esc(WEAK.a),'bot');var a=el('a','pb-act','Talk to a POSH specialist');a.href=wa(q);a.target='_blank';a.rel='noopener';b.appendChild(a)}else fallback(q)});
+  }
   function ask(q){
     q=q.trim();if(!q)return;add(esc(q),'me');inp.value='';
     if(window.gtag)gtag('event','posh_bot_question');
     setTimeout(function(){
       if(/^(hi|hello|hey|namaste|good (morning|afternoon|evening))\b/i.test(q)&&q.split(' ').length<4){add('Hello! I can answer questions about the POSH Act, Internal Committees, complaints and compliance. What would you like to know?','bot');chips(CHIPS.slice(0,3));return}
-      var r=answer(q);
+      var r=answer(q),weak=r&&LAST<STRONG?r:null;if(weak)r=null;
       if(r){var h=esc(r.a);if(r.link)h+='<br><br><a href="'+r.link.h+'">'+esc(r.link.t)+' →</a>';var b=add(h,'bot');if(r.human){var a=el('a','pb-act','Talk to a POSH specialist');a.href=wa(q);a.target='_blank';a.rel='noopener';b.appendChild(el('div','',''));b.appendChild(a)}}
       else if(!POSHWORDS.test(q)){add('I can only help with POSH (Prevention of Sexual Harassment) questions. Try one of these, or talk to our team.','bot');chips(CHIPS.slice(0,3))}
-      else{var b2=add('I don\'t have a vetted answer for that yet. Our POSH specialists can help. Leave your email and we will reply, or chat on WhatsApp.<form id="pbQ" style="margin-top:8px;display:flex;gap:6px"><input name="email" type="email" required placeholder="Your email" style="flex:1;border:1px solid #D8D3C4;border-radius:6px;padding:6px 8px;font:13px DM Sans,sans-serif"><button style="background:#C9A84C;border:none;border-radius:6px;padding:6px 10px;cursor:pointer;font:500 12px DM Sans,sans-serif">Send</button></form><a class="pb-act" style="margin-top:8px" target="_blank" rel="noopener" href="'+wa(q)+'">Chat on WhatsApp</a>','bot');
-        var f=b2.querySelector('#pbQ');f.id='';f.onsubmit=function(e){e.preventDefault();var fd=new FormData(f);fd.append('question',q);fd.append('source','posh-chatbot-unanswered');fd.append('_subject','POSH chatbot — unanswered question');fetch('https://formspree.io/f/xrerbnyv',{method:'POST',body:fd,headers:{Accept:'application/json'}}).catch(function(){});f.outerHTML='<div style="margin-top:8px">Thanks — we will reply by email.</div>'}}
+      else{WEAK=weak;aiAsk(q)}
     },350);
   }
-  function open(){box.classList.add('open');btn.style.display='none';if(!started){started=true;add('Hi, I\'m the Maslo POSH Assistant. Ask me about the POSH Act, Internal Committees, complaints, timelines or annual reports.','bot');chips(CHIPS)}setTimeout(function(){inp.focus()},50);if(window.gtag)gtag('event','posh_bot_open')}
+  function open(){hideTip();box.classList.add('open');btn.style.display='none';if(!started){started=true;add('Hello, I\'m the Maslo POSH Consultant, an AI assistant trained on the POSH Act. Ask me about Internal Committees, complaints, timelines, penalties or annual reports, and I will give you a clear answer.','bot');chips(CHIPS)}setTimeout(function(){inp.focus()},50);if(window.gtag)gtag('event','posh_bot_open')}
   function close(){box.classList.remove('open');btn.style.display='flex'}
   btn.onclick=open;box.querySelector('.pb-h button').onclick=close;
   box.querySelector('#pbF').onsubmit=function(e){e.preventDefault();ask(inp.value)};
